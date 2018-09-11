@@ -22,7 +22,7 @@ class QuizQuestion(models.Model):
 class Answer(models.Model):
     question = models.ForeignKey(QuizQuestion, on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
-    correct = models.BooleanField()
+    correct = models.BooleanField(default=False)
 
     class Meta:
         unique_together = [
