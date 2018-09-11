@@ -1,6 +1,6 @@
 # Import modules, models
 from rest_framework import serializers
-from characters.models import Quiz, Question, Answer
+from quizzes.models import Quiz, Question, Answer
 
 class QuizSerializer(serializers.HyperlinkedModelSerializer):
     model = Quiz
