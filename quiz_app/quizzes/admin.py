@@ -1,21 +1,22 @@
 # Import modules
 from django.contrib import admin
+from nested_admin import NestedModelAdmin, NestedStackedInline, NestedTabularInline
 from .models import Quiz, QuizQuestion, Answer
 
-class AnswersStacked(admin.TabularInline):
+class AnswersInline(NestedTabularInline):
     model = Answer
     extra = 5
 
-class QuestionAdmin(admin.StackedInline):
+class QuestionInline(NestedStackedInline):
     model = QuizQuestion
-    inlines = [AnswersStacked]
+    inlines = [AnswersInline,]
     extra = 5
 
-class QuizAdmin(admin.ModelAdmin):
+class QuizAdmin(NestedModelAdmin):
     fieldsets = [
         ('Quiz Name', {'fields': ['name']})
     ]
-    inlines = [QuestionAdmin]
+    inlines = [QuestionInline,]
     list_display = ('name', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['name', 'series']
