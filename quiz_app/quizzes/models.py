@@ -10,7 +10,8 @@ class Quiz(models.Model):
 
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    text = models.CharField()
+    question_text = models.CharField()
+    explanation_text = models.CharField()
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)

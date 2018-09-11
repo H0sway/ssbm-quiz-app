@@ -8,7 +8,8 @@ class AnswerInLine(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Question', {'fields': ['text']})
+        ('Question', {'fields': ['question_text']}),
+        ('Answer Explanation:' {'fields': ['explanation_text']})
     ]
     inlines = [AnswerInLine]
 
