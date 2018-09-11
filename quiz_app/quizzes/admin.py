@@ -6,20 +6,18 @@ class AnswerInLine(admin.TabularInline):
     model = Answer
     extra = 5
 
-class QuestionAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Question', {'fields': ['question_text']}),
-        ('Answer Explanation:' {'fields': ['explanation_text']})
-    ]
+class QuestionInLine(admin.TabularInline):
+    model = Question
+    extra = 10
     inlines = [AnswerInLine]
 
 class QuizAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Quiz Name', {'fields': ['name']})
     ]
-    inlines = [QuestionAdmin]
+    inlines = [QuestionInLine]
     list_display = ('name', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['name', 'series']
 
-admin.site.register(Quiz, Question, QuizAdmin, QuestionAdmin)
+admin.site.register(Quiz, QuizAdmin)
