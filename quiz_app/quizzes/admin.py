@@ -1,15 +1,10 @@
 # Import modules
 from django.contrib import admin
-from .models import Quiz, Question, Answer
-
-class AnswerInLine(admin.TabularInline):
-    model = Answer
-    extra = 5
+from .models import Quiz, QuizQuestion
 
 class QuestionInLine(admin.TabularInline):
-    model = Question
-    extra = 10
-    inlines = [AnswerInLine]
+    model = QuizQuestion
+    extra = 5
 
 class QuizAdmin(admin.ModelAdmin):
     fieldsets = [

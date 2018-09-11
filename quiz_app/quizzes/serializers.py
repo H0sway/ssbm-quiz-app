@@ -1,15 +1,11 @@
 # Import modules, models
 from rest_framework import serializers
-from quizzes.models import Quiz, Question, Answer
+from quizzes.models import Quiz, QuizQuestion
 
 class QuizSerializer(serializers.HyperlinkedModelSerializer):
     model = Quiz
     fields = '__all__'
 
-class QuestionSerializer(serializers.HyperlinkedModelSerializer):
-    model = Question
-    fields = '__all__'
-
-class AnswerSerializer(serializers.HyperlinkedModelSerializer):
-    model = Answer
+class QuizQuestionSerializer(serializers.HyperlinkedModelSerializer):
+    model = QuizQuestion
     fields = '__all__'

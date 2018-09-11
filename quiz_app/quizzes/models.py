@@ -8,12 +8,12 @@ class Quiz(models.Model):
     name = models.CharField(max_length=50)
     pub_date = models.DateTimeField(auto_now_add=True)
 
-class Question(models.Model):
+class QuizQuestion(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=300)
     explanation_text = models.CharField(max_length=2000)
-
-class Answer(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    text = models.CharField(max_length=300)
-    is_correct = models.BooleanField()
+    not_fake = models.CharField(max_length=200)
+    fake_one = models.CharField(max_length=200)
+    fake_two = models.CharField(max_length=200)
+    fake_three = models.CharField(max_length=200)
+    fake_also = models.CharField(max_length=200)

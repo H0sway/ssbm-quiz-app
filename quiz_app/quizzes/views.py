@@ -1,6 +1,6 @@
 # Import Modules
-from quizzes.models import Quiz, Question, Answer
-from quizzes.serializers import QuizSerializer, QuestionSerializer, AnswerSerializer
+from quizzes.models import Quiz
+from quizzes.serializers import QuizSerializer
 from django.views import generic
 
 # API Views.
