@@ -5,12 +5,10 @@ from .models import Quiz, QuizQuestion, Answer
 
 class AnswersInline(NestedTabularInline):
     model = Answer
-    extra = 5
 
 class QuestionInline(NestedStackedInline):
     model = QuizQuestion
     inlines = [AnswersInline,]
-    extra = 5
 
 class QuizAdmin(NestedModelAdmin):
     fieldsets = [

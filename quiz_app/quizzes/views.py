@@ -1,16 +1,16 @@
 # Import Modules
 from quizzes.models import Quiz
 from quizzes.serializers import QuizSerializer
-from django.views import generic
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 # API Views.
 
 # View all the quizzes
-class QuizList(generic.ListView):
+class QuizList(ListAPIView):
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
 
 # View a single quiz
-class SingleQuiz(generic.DetailView):
+class SingleQuiz(RetrieveAPIView):
     model = Quiz
     serializer_class = QuizSerializer
