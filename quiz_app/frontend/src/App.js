@@ -6,11 +6,20 @@ import { Grid } from 'react-bootstrap';
 // Import SCSS
 import './scss/main.scss';
 
+// Import components
+import Header from './components/Header';
+import Quizzes from './components/Quizzes';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hi Mom!</h1>
+        <Grid>
+          <Header />
+          <Router>
+            <Route exact path="/" component={Quizzes} />
+              </Router>
+        </Grid>
       </div>
     )
   }
