@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'quizzes',
     'nested_admin',
     'rest_framework',
+    'frontend'
 ]
 
 MIDDLEWARE = [
