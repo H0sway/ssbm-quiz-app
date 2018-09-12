@@ -1,5 +1,5 @@
 {
-  "name": "melee_quz_app",
+  "name": "melee_quiz_app",
   "version": "1.0.0",
   "description": "Test your Super Smash Bros. Melee knowledge!",
   "main": "index.js",
