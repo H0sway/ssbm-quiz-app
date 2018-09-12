@@ -9,18 +9,20 @@ import './scss/main.scss';
 // Import components
 import Header from './components/Header';
 import Quizzes from './components/Quizzes';
+import Quiz from './components/Quiz';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Grid>
-          <Header />
-          <Router>
+      <Router>
+        <div className="App">
+          <Grid>
+            <Header />
             <Route exact path="/" component={Quizzes} />
-              </Router>
-        </Grid>
-      </div>
+            <Route exact path="/:name" component={Quiz} />
+          </Grid>
+        </div>
+      </Router>
     )
   }
 };

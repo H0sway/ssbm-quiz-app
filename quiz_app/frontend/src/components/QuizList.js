@@ -7,7 +7,7 @@ const QuizList = (props) => {
       <ul>
         {props.quizzes.map(quiz => {
           return (
-            <LinkContainer to={`/${quiz.name}`}>
+            <LinkContainer key={quiz.id} to={`/${quiz.name}`}>
               <li>{quiz.name}</li>
             </LinkContainer>
           )
