@@ -16,6 +16,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('frontend.urls')),
-    path('', include('quizzes.urls'))
+    path('', include('quizzes.urls')),
+    path('', include('frontend.urls'))
 ]
