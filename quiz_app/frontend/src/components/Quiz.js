@@ -6,7 +6,8 @@ class Quiz extends Component {
     super()
     this.state = {
       dataLoaded: false,
-      quiz: [],
+      quiz: {},
+      questions: [],
       currentQuestion: '',
       correct: 0
     }
@@ -21,9 +22,8 @@ class Quiz extends Component {
     .then(data => {
       this.setState({
         dataLoaded: true,
-        quiz: data.data
+        quiz: data.data[0].id
       })
-      console.log(data.data);
     })
     .catch(err => {
       console.log(err);
