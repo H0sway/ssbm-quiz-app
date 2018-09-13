@@ -14,7 +14,6 @@ class Quiz extends Component {
   }
   componentDidMount() {
     const route = this.props.currentQuiz
-    console.log(route);
     axios({
       method: 'GET',
       url: `/api/quizzes/${route}`
@@ -24,6 +23,7 @@ class Quiz extends Component {
         dataLoaded: true,
         quiz: data.data[0].id
       })
+      console.log(this.state.quiz);
     })
     .catch(err => {
       console.log(err);

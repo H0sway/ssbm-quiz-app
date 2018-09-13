@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import AnswerQuestion from './AnswerQuestion';
+
 class Questions extends Component {
   constructor(props) {
     super(props);
     this.state = {
       quiz: this.props.quiz,
       dataLoaded: false,
-      questions: [],
-      currentQuestion: ''
+      questions: []
     }
   }
   componentDidMount() {
@@ -25,10 +26,8 @@ class Questions extends Component {
       }
       this.setState({
         dataLoaded: true,
-        questions: questions,
-        currentQuestion: questions[0]
+        questions: questions
       })
-      console.log(this.state);
     })
     .catch(err => {
       console.log(err);
@@ -37,7 +36,7 @@ class Questions extends Component {
   render() {
     return (
       <div className="Questions">
-        {this.state.dataLoaded ? <p>Loaded</p> : <p>Loading</p>}
+        {this.state.dataLoaded ? <AnswerQuestion questions={this.state.questions} /> : <p>Loading</p>}
       </div>
     )
   }
