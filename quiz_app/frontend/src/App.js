@@ -1,6 +1,5 @@
 // Import dependencies
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
 
 // Import SCSS
@@ -12,17 +11,44 @@ import Quizzes from './components/Quizzes';
 import Quiz from './components/Quiz';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quizLoaded: false,
+      currentQuiz: ''
+    }
+    this.loadQuiz = this.loadQuiz.bind(this);
+    this.deloadQuiz = this.deloadQuiz.bind(this);
+  }
+  loadQuiz(event) {
+    this.setState({
+      quizLoaded: true,
+      currentQuiz: event.target.name
+    })
+    console.log(this.state.currentQuiz);
+  }
+  deloadQuiz() {
+    this.setState({
+      quizLoaded: false,
+      currentQuiz: ''
+    })
+  }
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Grid>
-            <Header />
-            <Route exact path="/" component={Quizzes} />
-            <Route exact path="/:name" component={Quiz} />
-          </Grid>
-        </div>
-      </Router>
+      <div className="App">
+        <Grid>
+          <Header />
+          {this.state.quizLoaded ?
+            <Quiz
+              deloadQuiz={this.deloadQuiz}
+              currentQuiz={this.state.currentQuiz}
+            />
+          : <Quizzes
+            loadQuiz={this.loadQuiz}
+            />
+          }
+        </Grid>
+      </div>
     )
   }
 };

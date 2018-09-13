@@ -4,8 +4,8 @@ import axios from 'axios';
 import Questions from './Questions';
 
 class Quiz extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       dataLoaded: false,
       quiz: {},
@@ -13,7 +13,7 @@ class Quiz extends Component {
     }
   }
   componentDidMount() {
-    const route = this.props.match.params.name.toLowerCase()
+    const route = this.props.currentQuiz
     console.log(route);
     axios({
       method: 'GET',
@@ -33,6 +33,7 @@ class Quiz extends Component {
     return (
       <div className="Quiz">
         {this.state.dataLoaded ? <Questions quiz={this.state.quiz} /> : <p>Loading</p>}
+        <button onClick={this.props.deloadQuiz}>Quiz List</button>
       </div>
     )
   }

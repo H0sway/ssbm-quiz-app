@@ -4,8 +4,8 @@ import axios from 'axios';
 import QuizList from './QuizList';
 
 class Quizzes extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
       dataLoaded: false,
       quizzes: []
@@ -29,7 +29,7 @@ class Quizzes extends Component {
   render() {
     return (
       <div className="Quizzes">
-        {this.state.dataLoaded ? <QuizList quizzes={this.state.quizzes} /> : <p>Loading</p>}
+        {this.state.dataLoaded ? <QuizList quizzes={this.state.quizzes} loadQuiz={this.props.loadQuiz} /> : <p>Loading</p>}
       </div>
     )
   }
