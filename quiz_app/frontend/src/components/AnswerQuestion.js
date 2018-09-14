@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import ThemAnswers from './ThemAnswers';
+
 class AnswerQuestion extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,6 @@ class AnswerQuestion extends Component {
       dataLoaded: false,
       questionAnswered: false,
       currentQuestion: this.props.questions[0],
-      answers: [],
       questionsAnswered: 0,
       correctAnswers: 0,
       isAnswered: false,
@@ -17,28 +18,6 @@ class AnswerQuestion extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.answerQuestion = this.answerQuestion.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
-  }
-  componentDidMount() {
-    axios({
-      method: 'GET',
-      url: 'api/answers/'
-    })
-    .then(data => {
-      let answers = [];
-      for (let i = 0; i < data.data.length; i++) {
-        if (data.data[i].question === this.state.currentQuestion.id) {
-          answers.push(data.data[i])
-        }
-      }
-      this.setState({
-        dataLoaded: true,
-        answers: answers
-      })
-      console.log(this.state.answers);
-    })
-    .catch(err => {
-      console.log(err);
-    })
   }
   handleChange(event) {
     this.setState({
@@ -61,7 +40,6 @@ class AnswerQuestion extends Component {
         questionsAnswered: this.state.questionsAnswered++
       })
     }
-    console.log(this.state.selectedAnswer);
   }
   nextQuestion() {
     if (this.state.questionsAnswered === this.props.questions.length) {
@@ -75,58 +53,20 @@ class AnswerQuestion extends Component {
       })
     }
   }
-  renderAnswers() {
-    return this.state.answers.map(answer => {
-      return (
-        <div key={answer.id} className="answer-div">
-          <label>
-            <input
-              type="radio"
-              value={answer.id.toString()}
-              checked={this.state.selectedAnswer === answer.id.toString()}
-              onChange={this.handleChange}
-            />
-            {answer.text}
-          </label>
-        </div>
-      )
-    })
-  }
-  renderCorrectAnswer() {
-    return (
-      <div>
-        <p>{this.state.currentQuestion.explanation_text}</p>
-        <button onClick={this.nextQuestion}>Next Question</button>
-      </div>
-    )
-  }
-  renderQuestion() {
-    return (
-      <div>
-        {
-          this.state.isAnswered ?
-            <div>
-              {this.renderCorrectAnswer()}
-            </div> :
-            <div>
-              <form onSubmit={this.answerQuestion}>
-                {this.renderAnswers()}
-                <button>Answer</button>
-              </form>
-            </div>
-        }
-      </div>
-    )
-  }
   render() {
     return (
       <div className="AnswerQuestion">
-        {this.state.dataLoaded ?
-          <div>
-            <h3>{this.state.currentQuestion.question_text}</h3>
-            {this.renderQuestion()}
-          </div> :
-          <p>Loading</p>}
+        <ThemAnswers
+          questionAnswered={this.state.questionAnswered}
+          currentQuestion={this.state.currentQuestion}
+          questionsAnswered={this.state.questionsAnswered}
+          correctAnswers={this.state.correctAnswers}
+          isAnswered={this.state.isAnswered}
+          selectedAnswer={this.state.selectedAnswer}
+          answerQuestion={this.answerQuestion}
+          handleChange={this.handleChange}
+          nextQuestion={this.nextQuestion}
+        />
       </div>
     )
   }
