@@ -32,8 +32,8 @@ class Quiz extends Component {
   render() {
     return (
       <div className="Quiz">
-        {this.state.dataLoaded ? <Questions quiz={this.state.quiz} /> : <p>Loading</p>}
         <button onClick={this.props.deloadQuiz}>Quiz List</button>
+        {this.state.dataLoaded ? <Questions quiz={this.state.quiz} /> : <p>Loading</p>}
       </div>
     )
   }

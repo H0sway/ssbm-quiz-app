@@ -9,8 +9,12 @@ class AnswerQuestion extends Component {
       questionAnswered: false,
       currentQuestion: this.props.questions[0],
       answers: [],
-      isAnswered: false
+      correctAnswers: 0,
+      isAnswered: false,
+      selectedAnswer: '',
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.answerQuestion = this.answerQuestion.bind(this);
   }
   componentDidMount() {
     axios({
@@ -34,11 +38,37 @@ class AnswerQuestion extends Component {
       console.log(err);
     })
   }
+  handleChange(event) {
+    const value = event.target.value;
+    this.setState({
+      selectedAnswer: value,
+    });
+  }
+  answerQuestion(event) {
+    event.preventDefault();
+    // if (this.state.selectedAnswer.correct === "true") {
+    //   this.setState({
+    //     correctAnswers: this.state.correctAnswers++,
+    //     isAnswered: true
+    //   })
+    // }
+    // else {
+    //   this.setState({
+    //     isAnswered: true
+    //   })
+    // }
+    console.log(this.state.selectedAnswer);
+  }
   renderAnswers() {
     return this.state.answers.map(answer => {
       return (
         <div key={answer.id} className="answer-div">
-          <input type="radio" name="answer" value={answer.correct} />
+          <input
+            type="radio"
+            value={answer.id.toString()}
+            onChange={this.handleChange}
+            checked={this.state.selectedAnswer === answer.id.toString()}
+          />
           <label>{answer.text}</label>
         </div>
       )
@@ -54,7 +84,7 @@ class AnswerQuestion extends Component {
   }
   renderQuestion() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h3>{this.state.currentQuestion.question_text}</h3>
         {
           this.state.isAnswered ?
@@ -63,7 +93,7 @@ class AnswerQuestion extends Component {
             </div>:
             <div>
               {this.renderAnswers()}
-              <button>Answer</button>
+              <button type="submit">Answer</button>
           </div>
         }
       </form>

@@ -16,3 +16,21 @@ body {
     list-style: none;
     text-align: left;
     cursor: pointer; }
+
+.AnswerQuestion .answer-div {
+  text-align: left;
+  border: .02em solid #000000;
+  margin: .5em;
+  padding: .2em; }
+
+.AnswerQuestion .answer-div:hover {
+  background: #c9c9c9; }
+
+.AnswerQuestion input {
+  margin-left: .5em; }
+
+.AnswerQuestion label {
+  margin-left: 1em; }
+
+.AnswerQuestion .submit {
+  margin: 0 auto; }
