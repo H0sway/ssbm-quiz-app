@@ -8,6 +8,10 @@
     "dev": "webpack --watch --mode development --open",
     "build": "webpack --mode production"
   },
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.4.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/H0sway/ssbm-quiz-app.git"
