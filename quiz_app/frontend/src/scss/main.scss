@@ -57,8 +57,14 @@ body {
   padding: .5em;
 }
 
+.Quiz {
+    margin: 15em auto;
+    button {
+      margin-bottom: 2em;
+    }
+}
+
 .AnswerQuestion {
-  margin: 15em auto;
   background-color: #850800;
   padding: .5em 1em;
   border: .2em solid $primary-color;

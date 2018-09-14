@@ -39,8 +39,12 @@
     text-align: left;
     cursor: pointer; }
 
+.Quiz {
+  margin: 15em auto; }
+  .Quiz button {
+    margin-bottom: 2em; }
+
 .AnswerQuestion {
-  margin: 15em auto;
   background-color: #850800;
   padding: .5em 1em;
   border: 0.2em solid #EDE9E4;
