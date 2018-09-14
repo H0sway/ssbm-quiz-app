@@ -39,10 +39,10 @@ class AnswerQuestion extends Component {
     })
   }
   handleChange(event) {
-    const value = event.target.value;
     this.setState({
-      selectedAnswer: value,
+      selectedAnswer: event.target.value,
     });
+    console.log(this.state.selectedAnswer);
   }
   answerQuestion(event) {
     event.preventDefault();
@@ -63,13 +63,15 @@ class AnswerQuestion extends Component {
     return this.state.answers.map(answer => {
       return (
         <div key={answer.id} className="answer-div">
-          <input
-            type="radio"
-            value={answer.id.toString()}
-            onChange={this.handleChange}
-            checked={this.state.selectedAnswer === answer.id.toString()}
-          />
-          <label>{answer.text}</label>
+          <label>
+            <input
+              type="radio"
+              value={answer.id.toString()}
+              checked={this.state.selectedAnswer === answer.id.toString()}
+              onChange={this.handleChange}
+            />
+            {answer.text}
+          </label>
         </div>
       )
     })
@@ -84,25 +86,31 @@ class AnswerQuestion extends Component {
   }
   renderQuestion() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>{this.state.currentQuestion.question_text}</h3>
+      <div>
         {
           this.state.isAnswered ?
             <div>
               {this.renderCorrectAnswer()}
-            </div>:
+            </div> :
             <div>
-              {this.renderAnswers()}
-              <button type="submit">Answer</button>
-          </div>
+              <form onSubmit={this.answerQuestion}>
+                {this.renderAnswers()}
+                <button>Answer</button>
+              </form>
+            </div>
         }
-      </form>
+      </div>
     )
   }
   render() {
     return (
       <div className="AnswerQuestion">
-        {this.state.dataLoaded ? <div>{this.renderQuestion()}</div> : <p>Loading</p>}
+        {this.state.dataLoaded ?
+          <div>
+            <h3>{this.state.currentQuestion.question_text}</h3>
+            {this.renderQuestion()}
+          </div> :
+          <p>Loading</p>}
       </div>
     )
   }

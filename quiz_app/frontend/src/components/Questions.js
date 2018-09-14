@@ -15,7 +15,7 @@ class Questions extends Component {
   componentDidMount() {
     axios({
       method: 'GET',
-      url: 'api/questions'
+      url: 'api/questions/'
     })
     .then(data => {
       let questions = [];

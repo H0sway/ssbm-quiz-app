@@ -16,7 +16,7 @@ class Quiz extends Component {
     const route = this.props.currentQuiz
     axios({
       method: 'GET',
-      url: `/api/quizzes/${route}`
+      url: `/api/quizzes/${route}/`
     })
     .then(data => {
       this.setState({
