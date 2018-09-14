@@ -1,11 +1,23 @@
 body {
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  background-color: #000000; }
+
+.Header {
+  background-color: #AB0000;
+  width: 100%;
+  padding: .5em 1em 2em 1em;
+  position: fixed;
+  right: 0;
+  left: 0;
+  color: #EDE9E4;
+  border-bottom: .5em solid #ffffff; }
 
 .QuizList {
+  background: #ffffff;
   max-width: 15em;
   border: .2em solid #000000;
-  margin: 2em auto;
+  margin: 20em auto;
   padding: .5em; }
   .QuizList ul {
     text-align: left;
@@ -17,18 +29,25 @@ body {
     text-align: left;
     cursor: pointer; }
 
-.AnswerQuestion .answer-div {
-  text-align: left;
-  border: .02em solid #000000;
-  margin: .5em;
-  padding: .2em; }
-
-.AnswerQuestion .answer-div:hover {
-  background: #c9c9c9; }
-
-.AnswerQuestion input {
-  margin-left: .5em;
-  margin-right: 1em; }
-
-.AnswerQuestion .submit {
-  margin: 0 auto; }
+.AnswerQuestion {
+  margin: 15em auto;
+  background-color: #850800;
+  padding: .5em 1em;
+  border: 0.2em solid #EDE9E4;
+  border-radius: 2%; }
+  .AnswerQuestion h3 {
+    color: #EDE9E4;
+    margin-bottom: 1em; }
+  .AnswerQuestion .answer-div {
+    text-align: left;
+    color: #EDE9E4;
+    background: #000000;
+    border: .02em solid #ffffff;
+    padding: .2em; }
+  .AnswerQuestion .answer-div:hover {
+    background: #4C4B49; }
+  .AnswerQuestion input {
+    margin-left: .5em;
+    margin-right: 1em; }
+  .AnswerQuestion button {
+    margin: 1.5em auto .5em; }

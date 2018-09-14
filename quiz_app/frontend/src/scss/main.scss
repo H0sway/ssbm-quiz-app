@@ -1,7 +1,22 @@
+$primary-color: #EDE9E4;
+$background-color: #AB0000;
+$content-background: #ffffff;
+
 body {
   margin: 0 auto;
   text-align: center;
-  background-color: #AB0000;
+  background-color: #000000;
+}
+
+.Header {
+  background-color: $background-color;
+  width: 100%;
+  padding: .5em 1em 2em 1em;
+  position: fixed;
+  right: 0;
+  left: 0;
+  color: $primary-color;
+  border-bottom: .5em solid #ffffff;
 }
 
 .QuizList {
@@ -17,28 +32,38 @@ body {
     text-align: left;
     cursor: pointer;
   }
-
+  background: $content-background;
   max-width: 15em;
   border: .2em solid #000000;
-  margin: 2em auto;
+  margin: 20em auto;
   padding: .5em;
 }
 
 .AnswerQuestion {
+  margin: 15em auto;
+  background-color: #850800;
+  padding: .5em 1em;
+  border: .2em solid $primary-color;
+  border-radius: 2%;
+  h3 {
+    color: $primary-color;
+    margin-bottom: 1em;
+  }
   .answer-div {
     text-align: left;
-    border: .02em solid #000000;
-    margin: .5em;
+    color: $primary-color;
+    background: #000000;
+    border: .02em solid #ffffff;
     padding: .2em;
   }
   .answer-div:hover {
-    background: #c9c9c9;
+    background: #4C4B49;
   }
   input {
     margin-left: .5em;
     margin-right: 1em;
   }
-  .submit {
-    margin: 0 auto;
+  button {
+    margin: 1.5em auto .5em;
   }
 }

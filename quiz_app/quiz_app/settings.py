@@ -26,7 +26,7 @@ SECRET_KEY = 'lm1j&)e$dn0_t$ai)pe6a6k!xb4#(a-9avq20h#v&+j4x94-^='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://whispering-springs-79947.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
