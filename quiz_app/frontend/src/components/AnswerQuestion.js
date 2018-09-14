@@ -9,12 +9,14 @@ class AnswerQuestion extends Component {
       questionAnswered: false,
       currentQuestion: this.props.questions[0],
       answers: [],
+      questionsAnswered: 0,
       correctAnswers: 0,
       isAnswered: false,
       selectedAnswer: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.answerQuestion = this.answerQuestion.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
   }
   componentDidMount() {
     axios({
@@ -46,18 +48,32 @@ class AnswerQuestion extends Component {
   }
   answerQuestion(event) {
     event.preventDefault();
-    // if (this.state.selectedAnswer.correct === "true") {
-    //   this.setState({
-    //     correctAnswers: this.state.correctAnswers++,
-    //     isAnswered: true
-    //   })
-    // }
-    // else {
-    //   this.setState({
-    //     isAnswered: true
-    //   })
-    // }
+    if (this.state.selectedAnswer.correct === "true") {
+      this.setState({
+        correctAnswers: this.state.correctAnswers++,
+        isAnswered: true,
+        questionsAnswered: this.state.questionsAnswered++
+      })
+    }
+    else {
+      this.setState({
+        isAnswered: true,
+        questionsAnswered: this.state.questionsAnswered++
+      })
+    }
     console.log(this.state.selectedAnswer);
+  }
+  nextQuestion() {
+    if (this.state.questionsAnswered === this.props.questions.length) {
+      alert("You're at the end of the quiz. You got " + this.state.correctAnswers + " out of" + this.state.questionsAnswered + " correct.");
+    }
+    else {
+      const int = this.state.currentQuestion.id
+      this.setState({
+        currentQuestion: this.props.questions[int],
+        isAnswered: false,
+      })
+    }
   }
   renderAnswers() {
     return this.state.answers.map(answer => {
@@ -80,7 +96,7 @@ class AnswerQuestion extends Component {
     return (
       <div>
         <p>{this.state.currentQuestion.explanation_text}</p>
-        <button>Next Question</button>
+        <button onClick={this.nextQuestion}>Next Question</button>
       </div>
     )
   }
