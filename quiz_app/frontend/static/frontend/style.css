@@ -1,7 +1,9 @@
-body {
+@import url(https://fonts.googleapis.com/css?family=Arimo|Open+Sans|Bree+Serif);body {
   margin: 0 auto;
   text-align: center;
   background-color: #000000; }
+  body p {
+    color: #EDE9E4; }
 
 .Header {
   background-color: #AB0000;
@@ -12,6 +14,14 @@ body {
   left: 0;
   color: #EDE9E4;
   border-bottom: .5em solid #ffffff; }
+  .Header h1 {
+    font-family: "Arimo", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.5em; }
+  .Header h3 {
+    font-family: "Bree Serif", serif;
+    font-size: 1.5em; }
 
 .QuizList {
   background: #ffffff;
@@ -41,6 +51,7 @@ body {
   .AnswerQuestion .answer-div {
     text-align: left;
     color: #EDE9E4;
+    font-family: "Open Sans", sans-serif;
     background: #000000;
     border: .02em solid #ffffff;
     padding: .2em; }

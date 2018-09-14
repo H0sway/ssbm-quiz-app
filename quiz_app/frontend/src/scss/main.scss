@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo|Open+Sans|Bree+Serif');
+
 $primary-color: #EDE9E4;
 $background-color: #AB0000;
 $content-background: #ffffff;
+$melee-font: 'Arimo', sans-serif;
+$content-font: 'Open Sans', sans-serif;
+$secondary-font: 'Bree Serif', serif;
 
 body {
   margin: 0 auto;
   text-align: center;
   background-color: #000000;
+  p {
+    color: $primary-color;
+  }
 }
 
 .Header {
@@ -17,6 +25,16 @@ body {
   left: 0;
   color: $primary-color;
   border-bottom: .5em solid #ffffff;
+  h1 {
+    font-family: $melee-font;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.5em;
+  }
+  h3 {
+    font-family: $secondary-font;
+    font-size: 1.5em;
+  }
 }
 
 .QuizList {
@@ -52,6 +70,7 @@ body {
   .answer-div {
     text-align: left;
     color: $primary-color;
+    font-family: $content-font;
     background: #000000;
     border: .02em solid #ffffff;
     padding: .2em;
