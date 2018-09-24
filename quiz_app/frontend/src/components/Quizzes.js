@@ -14,9 +14,10 @@ class Quizzes extends Component {
   componentDidMount() {
     axios({
       method: 'GET',
-      url: '/api/quizzes'
+      url: '/api/quizzes/'
     })
     .then(data => {
+      console.log(data);
       this.setState({
         dataLoaded: true,
         quizzes: data.data,
