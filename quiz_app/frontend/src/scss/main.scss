@@ -46,15 +46,17 @@ body {
   }
 
   li {
+    background: $content-background;
     list-style: none;
     text-align: left;
+    border: .1em solid #000000;
+    padding: .5em;
     cursor: pointer;
   }
-  background: $content-background;
   max-width: 15em;
   border: .2em solid #000000;
   margin: 20em auto;
-  padding: .5em;
+  padding: 0;
 }
 
 .Quiz {

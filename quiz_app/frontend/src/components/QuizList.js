@@ -6,7 +6,9 @@ const QuizList = (props) => {
       <ul>
         {props.quizzes.map(quiz => {
           return (
-            <li key={quiz.id} name={quiz.name} onClick={props.loadQuiz}>{quiz.name}</li>
+            <div key={quiz.id}>
+              <li name={quiz.name} onClick={props.loadQuiz}>{quiz.name}</li>
+            </div>
           )
         })}
       </ul>
