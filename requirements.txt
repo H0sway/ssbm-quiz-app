@@ -1,6 +1,5 @@
 Django==2.1.1
 django-nested-admin==3.1.2
--e git://github.com/Soaa-/django-nested-inlines.git@aaf995a223720ca7d6b4bfc74fb5707cd1bd08dd#egg=django_nested_inlines
 django-webpack-loader==0.6.0
 djangorestframework==3.8.2
 python-monkey-business==1.0.0

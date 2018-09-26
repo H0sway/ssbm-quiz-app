@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quizzes',
-    'nested_admin',
     'rest_framework',
     'frontend',
     'whitenoise'
