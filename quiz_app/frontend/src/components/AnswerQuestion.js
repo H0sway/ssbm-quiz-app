@@ -15,6 +15,7 @@ class AnswerQuestion extends Component {
       questionsAnswered: 0,
       correctAnswers: 0,
       isAnswered: false,
+      isCorrect: false,
       selectedAnswer: '',
       quizFinished: false,
     }
@@ -46,6 +47,7 @@ class AnswerQuestion extends Component {
     let answer = this.state.allAnswers.filter(a => a.id === parseInt(this.state.selectedAnswer));
     if (answer[0].correct === true) {
       this.setState({
+        isCorrect: true,
         correctAnswers: this.state.correctAnswers + 1,
         isAnswered: true,
         questionsAnswered: this.state.questionsAnswered + 1
@@ -53,6 +55,7 @@ class AnswerQuestion extends Component {
     }
     else {
       this.setState({
+        isCorrect: false,
         isAnswered: true,
         questionsAnswered: this.state.questionsAnswered + 1
       })
@@ -91,6 +94,7 @@ class AnswerQuestion extends Component {
               questionsAnswered={this.state.questionsAnswered}
               correctAnswers={this.state.correctAnswers}
               isAnswered={this.state.isAnswered}
+              isCorrect={this.state.isCorrect}
               selectedAnswer={this.state.selectedAnswer}
               answerQuestion={this.answerQuestion}
               handleChange={this.handleChange}

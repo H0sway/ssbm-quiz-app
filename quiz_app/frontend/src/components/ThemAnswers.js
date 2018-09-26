@@ -78,9 +78,12 @@ class ThemAnswers extends Component {
   }
   renderCorrectAnswer() {
     return (
-      <div>
-        <p>{this.props.currentQuestion.explanation_text}</p>
-        <button onClick={this.props.nextQuestion}>Next Question</button>
+      <div className="answered">
+        <div className="answer-text">
+          {this.props.isCorrect ? <h4>CORRECT</h4> : <h4>FALSE</h4>}
+          <p>{this.props.currentQuestion.explanation_text}</p>
+        </div>
+        <button className="next-button" onClick={this.props.nextQuestion}>Next Question</button>
       </div>
     )
   }
@@ -95,7 +98,7 @@ class ThemAnswers extends Component {
             <div>
               <form onSubmit={this.props.answerQuestion}>
                 {this.renderAnswers()}
-                <button>Answer</button>
+                <button className="answer-button">Answer</button>
               </form>
             </div>
         }

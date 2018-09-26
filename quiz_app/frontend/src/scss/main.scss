@@ -3,6 +3,7 @@
 $primary-color: #EDE9E4;
 $background-color: #AB0000;
 $content-background: #ffffff;
+$hover-color: #4C4B49;
 $melee-font: 'Arimo', sans-serif;
 $content-font: 'Open Sans', sans-serif;
 $secondary-font: 'Bree Serif', serif;
@@ -38,31 +39,54 @@ body {
 }
 
 .QuizList {
+  display: table;
+  margin: 20em auto;
+  padding: 0;
+  display: flex;
+  max-width: 20em;
+
   ul {
     text-align: left;
     padding: 0;
     display: inline-block;
-    margin: .1em;
+    margin-bottom: 0;
+    border: .2em solid $content-background;
+    border-radius: 2%;
+    display: table-cell;
+    flex-grow: 1;
   }
 
   li {
-    background: $content-background;
+    background: $background-color;
+    font-family: $content-font;
+    font-weight: bolder;
+    color: $content-background;
     list-style: none;
     text-align: left;
     border: .1em solid #000000;
-    padding: .5em;
+    padding: 1em;
     cursor: pointer;
   }
-  max-width: 15em;
-  border: .2em solid #000000;
-  margin: 20em auto;
-  padding: 0;
+  li:hover {
+    background: #C10000;
+  }
 }
 
 .Quiz {
     margin: 15em auto;
+
     button {
       margin-bottom: 2em;
+      border: .15em solid $background-color;
+      padding: .4em;
+      color: $background-color;
+      background: $content-background;
+      font-family: $secondary-font;
+      font-size: 1.25em;
+      transition: .5s;
+    }
+    button:hover {
+      background: #c9c9c9;
     }
 }
 
@@ -71,9 +95,19 @@ body {
   padding: .5em 1em;
   border: .2em solid $primary-color;
   border-radius: 2%;
+
   h3 {
     color: $primary-color;
+    font-family: $melee-font;
+    font-size: 2em;
+    padding-bottom: .5em;
     margin-bottom: 1em;
+    border-bottom: .1em solid #c9c9c9;
+  }
+  h4 {
+    color: $primary-color;
+    font-family: $secondary-font;
+    font-size: 2em;
   }
   .answer-div {
     text-align: left;
@@ -84,13 +118,43 @@ body {
     padding: .2em;
   }
   .answer-div:hover {
-    background: #4C4B49;
+    background: $hover-color;
+  }
+  label {
+    cursor: pointer;
+    font-family: $content-font;
+    font-size: 1.25em;
   }
   input {
     margin-left: .5em;
     margin-right: 1em;
   }
   button {
+    border: 0;
     margin: 1.5em auto .5em;
+    border-radius: 15%;
+    padding: .6em;
+    color: $background-color;
+    background: #000000;
+    font-family: $secondary-font;
+    font-size: 1.25em;
+    transition: 0s;
+  }
+  button:hover {
+    background: #000000;
+    color: #ff0000;
+  }
+}
+
+.answered {
+  .answer-text {
+    background: #000000;
+    border: .02em solid $primary-color;
+  }
+  p {
+    font-family: $content-font;
+  }
+  .next-button {
+    border-radius: 0;
   }
 }
