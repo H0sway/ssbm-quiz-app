@@ -17,7 +17,6 @@ class Quizzes extends Component {
       url: '/api/quizzes/'
     })
     .then(data => {
-      console.log(data);
       this.setState({
         dataLoaded: true,
         quizzes: data.data,

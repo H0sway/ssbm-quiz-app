@@ -29,7 +29,6 @@ class ThemAnswers extends Component {
         dataLoaded: true,
         answers: answers
       })
-      console.log(this.state.answers);
     })
     .catch(err => {
       console.log(err);
@@ -54,7 +53,6 @@ class ThemAnswers extends Component {
           dataLoaded: true,
           answers: answers
         })
-        console.log(this.state.answers);
       })
       .catch(err => {
         console.log(err);

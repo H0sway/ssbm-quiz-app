@@ -16,22 +16,22 @@ class App extends Component {
     super();
     this.state = {
       quizLoaded: false,
-      currentQuiz: ''
+      currentQuiz: {}
     }
     this.loadQuiz = this.loadQuiz.bind(this);
     this.deloadQuiz = this.deloadQuiz.bind(this);
   }
   loadQuiz(event) {
+    const currentQuiz = event.target.id;
     this.setState({
       quizLoaded: true,
-      currentQuiz: event.target.name
+      currentQuiz: currentQuiz
     })
-    console.log(this.state.currentQuiz);
   }
   deloadQuiz() {
     this.setState({
       quizLoaded: false,
-      currentQuiz: ''
+      currentQuiz: {}
     })
   }
   render() {

@@ -13,17 +13,16 @@ class Quiz extends Component {
     }
   }
   componentDidMount() {
-    const route = this.props.currentQuiz
+    const id = this.props.currentQuiz - 1;
     axios({
       method: 'GET',
-      url: `/api/quizzes/${route}/`
+      url: '/api/quizzes/'
     })
     .then(data => {
       this.setState({
         dataLoaded: true,
-        quiz: data.data[0].id
+        quiz: data.data[id].id
       })
-      console.log(this.state.quiz);
     })
     .catch(err => {
       console.log(err);

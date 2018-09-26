@@ -19,8 +19,9 @@ class Questions extends Component {
     })
     .then(data => {
       let questions = [];
+      const quizNumber = this.state.quiz;
       for (let i = 0; i < data.data.length; i ++) {
-        if (data.data[i].quiz === this.state.quiz) {
+        if (data.data[i].quiz === quizNumber) {
           questions.push(data.data[i]);
         }
       }

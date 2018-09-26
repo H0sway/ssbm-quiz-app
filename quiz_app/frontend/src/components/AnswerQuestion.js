@@ -65,15 +65,18 @@ class AnswerQuestion extends Component {
       })
     }
     else {
-      const int = this.state.currentQuestion.id
+      const qList = this.props.questions;
+      const currentQ = qList.indexOf(this.state.currentQuestion);
+      const int = currentQ + 1;
+      console.log(currentQ, int);
       this.setState({
         currentQuestion: this.props.questions[int],
         isAnswered: false,
       })
     }
-    console.log(this.state.correctAnswers);
   }
   render() {
+    console.log(this.props.questions);
     return (
       <div className="AnswerQuestion">
         {
